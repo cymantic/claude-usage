@@ -107,7 +107,8 @@ Tokens Out:      147,011
 
 ## Max Plan Value
 
-The report shows your "API equivalent cost" - what you would have paid using the API directly. This helps validate your Max subscription value:
+The report shows your "API equivalent cost" - what you would have paid using the API directly. This helps validate your
+Max subscription value:
 
 - **Green**: You're getting more value than your subscription cost
 - **Yellow**: You're under-utilizing your subscription
