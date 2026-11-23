@@ -1,0 +1,6 @@
+{
+  "name": "spend-review",
+  "version": "0.1.0",
+  "description": "/spend-review: API-equivalent Claude Code spend over 30, 14 or 7 days, by weekday and project, in a pane",
+  "types": "./types/index.d.ts"
+}

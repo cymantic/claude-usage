@@ -1,0 +1,5 @@
+{
+  "name": "claude-usage",
+  "owner": { "name": "Tom" },
+  "plugins": [{ "name": "spend-review", "source": "./mod/spend-review" }]
+}

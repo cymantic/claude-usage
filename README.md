@@ -9,7 +9,7 @@ SQLite-based reporting.
 |-------------------|-----------------------------------------------------------------------|
 | `statusline.sh`   | Status bar script that displays context, limits and cost, and records terminal sessions |
 | `usage-sync.py`   | Reads every session and agent transcript into SQLite and prices it at API rates       |
-| `spend-review.py` | The tables behind `/spend-review`: spend by weekday and project over 30, 14 and 7 days |
+| `spend-review.py` | The tables behind the `/spend-review` pane: spend by weekday and project over 30, 14 and 7 days |
 | `usage-report.sh` | Runs `usage-sync.py`, then aggregates and reports on usage                              |
 
 ## Setup
@@ -131,14 +131,17 @@ Tokens Out:      137,181
 
 ## Spend review
 
-`/spend-review` in Claude Code charts spend over the last 30, 14 and 7 days by day of the week and by project, with
-totals for each period. Link the skill in once:
+`/spend-review` in Claude Code opens a pane: spend over the last 30, 14 or 7 days (`1`, `2`, `3` switch between them,
+`r` refreshes), with totals, spend by day of the week and spend by project. It is a mod, in `mod/spend-review`, listed
+in this repository's marketplace file. Install it once from a terminal session:
 
-```bash
-ln -s ~/Development/claude-usage/skills/spend-review ~/.claude/skills/spend-review
+```
+/plugin install spend-review --marketplace ~/Development/claude-usage
 ```
 
-Its tables come from `spend-review.py totals`, `weekday` and `project`, which print CSV and can be run on their own.
+It runs `spend-review.py json` from this folder, so keep the repository at `~/Development/claude-usage`.
+`spend-review.py totals`, `weekday` and `project`, with an optional number of days, print one table as CSV. Test the
+mod with `claude plugin test mod/spend-review`.
 
 ## Max Plan Value
 
