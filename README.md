@@ -9,6 +9,7 @@ SQLite-based reporting.
 |-------------------|-----------------------------------------------------------------------|
 | `statusline.sh`   | Status bar script that displays context, limits and cost, and records terminal sessions |
 | `usage-sync.py`   | Reads every session and agent transcript into SQLite and prices it at API rates       |
+| `spend-review.py` | The tables behind `/spend-review`: spend by weekday and project over 30, 14 and 7 days |
 | `usage-report.sh` | Runs `usage-sync.py`, then aggregates and reports on usage                              |
 
 ## Setup
@@ -40,7 +41,7 @@ Add to `~/.claude/settings.json`:
 The status line will now appear at the bottom showing:
 
 ```
-Opus 5.5 | claude-usage (main) | Ctx 13% | Rate 16% 1h 4m | ≈$25.81 API
+Opus 5.5 | claude-usage (main) | Ctx 13% | Rate 16% (1h 4m) | ≈$25.81 API
 ```
 
 - Model name and current directory, with its git branch
@@ -127,6 +128,17 @@ Tokens Out:      137,181
   2026-11-23 Checkout redesign: $6.28
   2026-11-23 KPI dashboard: $3.45
 ```
+
+## Spend review
+
+`/spend-review` in Claude Code charts spend over the last 30, 14 and 7 days by day of the week and by project, with
+totals for each period. Link the skill in once:
+
+```bash
+ln -s ~/Development/claude-usage/skills/spend-review ~/.claude/skills/spend-review
+```
+
+Its tables come from `spend-review.py totals`, `weekday` and `project`, which print CSV and can be run on their own.
 
 ## Max Plan Value
 

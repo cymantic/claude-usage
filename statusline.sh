@@ -47,7 +47,7 @@ time_left() {
 limit() {
   local label=$1 pct=$2 left=$3
   printf '%s %s' "$label" "$(coloured "$pct")"
-  if is_number "$left"; then printf ' %s' "$(time_left "$left")"; fi
+  if is_number "$left"; then printf ' (%s)' "$(time_left "$left")"; fi
 }
 
 # What the session has cost: on a subscription that is what the API would have charged, not money spent.
